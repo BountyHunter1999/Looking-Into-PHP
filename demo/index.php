@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
-    <style>
+    <!-- <style>
       body {
         display: grid;
         place-items: center;
@@ -11,20 +11,23 @@
         margin: 0;
         font-family: sans-serif;
       }
-    </style>
+    </style> -->
   </head>
   <body>
+    <h1>Recommended Mangas</h1>
     <?php
-    $name = "One Piece";
-    $read = true; 
+    $mangas = [
+      "One Piece",
+      "My Hero Academia",
+      "Hunter_x_Hunter",
+      "JoJo"
+    ];
 
-    if ($read) {
-      $message = "You have read $name";
-    } else {
-      $message = "You have yet to read $name"; 
-    }
     ?>
-    <!-- <h1>"<?php echo $message ?>."</h1> same as below -->
-    <h1><?= $message ?> </h1>
+    <ul>
+      <?php foreach ($mangas as $manga) : ?>
+        <li><?= $manga; ?></li>
+      <?php endforeach; ?>
+    </ul>
   </body>
 </html>
