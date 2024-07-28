@@ -5,9 +5,17 @@
     <title>Demo</title>
   </head>
   <body>
-    <h1><?php
-      echo "Hello From PHP!";
-    ?></h1>
-
+    <h1>
+      <?php
+        $greeting = "Hello";
+        echo $greeting . " " . "From PHP, hariom!!";
+        ?>
+    </h1>
+    <h2>
+      <?php
+        $greeting = "Hallo";
+        echo "$greeting vom Shrish!!";
+      ?>
+    </h2>
   </body>
 </html>
