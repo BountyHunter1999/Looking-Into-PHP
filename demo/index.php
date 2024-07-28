@@ -3,19 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <h1>
-      <?php
-        $greeting = "Hello";
-        echo $greeting . " " . "From PHP, hariom!!";
-        ?>
-    </h1>
-    <h2>
-      <?php
-        $greeting = "Hallo";
-        echo "$greeting vom Shrish!!";
-      ?>
-    </h2>
+    <?php
+    $name = "One Piece";
+    $read = true; 
+
+    if ($read) {
+      $message = "You have read $name";
+    } else {
+      $message = "You have yet to read $name"; 
+    }
+    ?>
+    <!-- <h1>"<?php echo $message ?>."</h1> same as below -->
+    <h1><?= $message ?> </h1>
   </body>
 </html>
