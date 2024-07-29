@@ -43,21 +43,23 @@
           ]
       ];
 
-      function filterByAuthor($mangas, $author) {
-        $filteredMangas = [];
-        foreach ($mangas as $manga) {
-          if ($manga['author'] === $author) {
-            $filteredMangas[] = $manga;
+      $filter = function ($items, $fn) {
+        $filteredItems = [];
+        foreach ($items as $item) {
+          if ($fn($item)) {
+            $filteredItems[] = $item;
           }
         }
-          return $filteredMangas;
-      }
+          return $filteredItems;
+      };
+
+      $filteredItems = $filter($mangas, function ($manga) {
+        return $manga['releaseYear'] >= 1980 and $manga['releaseYear'] <= 1997;
+      });
     ?>
     <ul>
-      <?php foreach (filterByAuthor($mangas, "Akira Toriyama") as $manga) : ?>
-        <?php if ($manga['author'] === "Akira Toriyama") : ?>
+      <?php foreach ($filteredItems as $manga) : ?>
           <li><?= "{$manga['author']} wrote {$manga['name']} at {$manga['releaseYear']}"; ?></li>
-        <?php endif; ?>
       <?php endforeach; ?>
     </ul>
   </body>
