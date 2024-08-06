@@ -1,4 +1,4 @@
-up:
+up-note:
 	docker compose up -d
 
 run: # filename must be index

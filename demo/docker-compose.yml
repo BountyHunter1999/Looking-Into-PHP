@@ -1,7 +1,7 @@
 services:
   app:
     build:
-      context: ./demo
+      context: .
     environment:
       - PORT=${APP_PORT:-4002}
       - DB_USER=${DB_USER}
@@ -12,7 +12,7 @@ services:
     ports:
       - ${APP_PORT:-4002}:${APP_PORT:-4002}
     volumes:
-      - ./demo:/app
+      - .:/app
 
   db:
     image: mysql:8.0.37-debian
