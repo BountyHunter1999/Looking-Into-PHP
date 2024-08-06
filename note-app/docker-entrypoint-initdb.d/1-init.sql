@@ -16,10 +16,19 @@ CREATE TABLE IF NOT EXISTS notes (
 
 CREATE UNIQUE INDEX unique_email_index ON users (email);
 
--- BEGIN;
+BEGIN;
 
--- INSERT INTO posts (title) VALUES 
--- ('My First Blog Post'), 
--- ('My Second Blog Post');
+INSERT INTO users (name, email) VALUES 
+('Alice Johnson', 'alice.johnson@example.com'),
+('Bob Smith', 'bob.smith@example.com'),
+('Charlie Brown', 'charlie.brown@example.com');
 
--- COMMIT;
+
+INSERT INTO notes (body, user_id) VALUES
+('Discuss the upcoming project timeline and deliverables.', 1),
+('Milk, Bread, Butter, Eggs, Coffee.', 2),
+('Finish reading book, go for a run, call mom.', 1),
+('Try new pasta recipe with mushrooms and spinach.', 3),
+('Monday: Cardio; Tuesday: Strength training.', 2);
+
+COMMIT;
