@@ -8,7 +8,11 @@
     <!-- Your content -->
     <h1 class="text-2xl font-bold">Hello, This is my notes page</h1>
       <?php foreach ($notes as $note) : ?>
-        <li><?= $note['body'] ?></li>
+        <li>
+          <a href="/note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline">
+            <?= $note['body'] ?>
+          </a>
+        </li>
       <?php endforeach; ?>
   </div>
 </main>
