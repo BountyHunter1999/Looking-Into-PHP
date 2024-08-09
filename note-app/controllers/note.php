@@ -11,6 +11,14 @@ $db = New Database($config["database"], username: $DB_USER, password: $DB_PASSWO
 
 $note = $db->query("SELECT * FROM notes WHERE id = :id", ["id" =>  $_GET['id']])->fetch();
 
+if (! $note) {
+    abort();
+}
+
+if ($note['id'] !== 1) {
+    abort(403);
+}
+
 $heading = "Note";
 
 require "views/note.view.php";
