@@ -13,6 +13,8 @@ services:
       - ${APP_PORT:-4002}:${APP_PORT:-4002}
     volumes:
       - .:/app
+    networks:
+      - notes
 
   db:
     image: mysql:8.0.37-debian
@@ -26,3 +28,8 @@ services:
       - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     ports:
       - 3306:3306
+    networks:
+      - notes
+
+networks:
+  notes:
