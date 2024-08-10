@@ -10,4 +10,5 @@ $db = New Database($config["database"], username: $DB_USER, password: $DB_PASSWO
 $notes = $db->query("SELECT * FROM notes;");
 
 
+require("Response.php");
 require("router.php");
