@@ -1,16 +1,7 @@
 <?php
 
 require "functions.php";
-
-$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
-
-// if ($uri === "/") {
-//     require "controllers/index.php";
-// } else if($uri === "/about") {
-//     require "controllers/about.php";
-// } else if($uri === "/contact") {
-//     require "controllers/contact.php";
-// }
+$routes = require "routes.php";
 
 function abort($code = 404) {
     http_response_code($code);
@@ -29,12 +20,5 @@ function routeToController($uri, $routes){
     }
 }
 
-$routes = [
-    "/" => "controllers/index.php",
-    "/about" => "controllers/about.php",
-    "/notes" => "controllers/notes.php",
-    "/note" => "controllers/note.php",
-    "/contact" => "controllers/contact.php"
-];
-
+$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 routeToController($uri, $routes);
