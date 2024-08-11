@@ -19,7 +19,7 @@ if (! $note) {
     abort();
 }
 
-authorize($note['id'] === $currentUserId);
+authorize($note['user_id'] === $currentUserId);
 
 require view("notes/show.view.php", [
     "heading" => "Note",
