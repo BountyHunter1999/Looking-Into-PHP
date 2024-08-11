@@ -11,4 +11,4 @@ $notes = $db->query("SELECT * FROM notes WHERE user_id = :id;", ["id" => 1])->ge
 
 $heading = "Notes";
 
-require "views/notes.view.php";
+require "views/notes/index.view.php";
