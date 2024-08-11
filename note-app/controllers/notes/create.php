@@ -1,5 +1,8 @@
 <?php
 
+use Core\Validator;
+use Core\Database;
+
 // any of the require syntax works
 $config = require base_path("config.php");
 $DB_USER = $_ENV["DB_USER"] ?? "hariom";
