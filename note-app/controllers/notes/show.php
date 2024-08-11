@@ -1,6 +1,6 @@
 <?php
 
-$config = require("config.php");
+$config = require base_path("config.php");
 
 $currentUserId = 1;
 
@@ -19,7 +19,7 @@ if (! $note) {
 
 authorize($note['id'] === $currentUserId);
 
-
-$heading = "Note";
-
-require "views/notes/show.view.php";
+require view("notes/show.view.php", [
+    "heading" => "Note",
+    "note" => $note
+]);

@@ -25,11 +25,12 @@ function authorize($condition, $status=Response::FORBIDDEN) {
 }
 
 function base_path($path) {
+    var_dump(BASE_PATH . $path);
     return BASE_PATH . $path;
 }
 
 function view($path, $attributes = []) {
     // import variables into the current symbol table from an array
     extract($attributes);
-    require base_path("views/" . $path);
+    return base_path("views/" . $path);
 }

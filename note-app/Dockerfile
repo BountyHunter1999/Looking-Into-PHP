@@ -16,4 +16,4 @@ COPY . .
 EXPOSE ${PORT}
 
 # CMD [ "php", "-S", '0.0.0.0:"${PORT}"' ]
-CMD [ "/bin/sh", "-c", "php -S 0.0.0.0:${PORT}" ]
+CMD [ "/bin/sh", "-c", "php -t public -S 0.0.0.0:${PORT}" ]

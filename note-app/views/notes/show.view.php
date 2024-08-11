@@ -1,6 +1,6 @@
-<?php require("views/partials/head.php") ?>
-<?php require("views/partials/nav.php") ?>
-<?php require("views/partials/banner.php") ?>
+<?php require base_path("views/partials/head.php") ?>
+<?php require base_path("views/partials/nav.php") ?>
+<?php require base_path("views/partials/banner.php") ?>
 
 
 <main>
@@ -14,5 +14,5 @@
     <p class="text-lg mt-6 italic"><?= $note['body'] ?></p>
   </div>
 </main>
-<?php require("views/partials/footer.php") ?>
+<?php require base_path("views/partials/footer.php") ?>
  
