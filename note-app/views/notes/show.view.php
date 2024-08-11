@@ -12,11 +12,16 @@
 
     <h1 class="text-2xl font-bold">Hello, This is my note #<?= $note['id'] ?></h1>
     <p class="text-lg mt-6 italic"><?= $note['body'] ?></p>
+    <footer class="mt-6 ">
+      <a href="/note/edit?id=<?= $note['id'] ?>" class="text-gray-500 border border-current px-3 py-2 rounded">Edit</a>
+    </footer>
     <form method="post" class="mt-6">
       <input type="hidden" name="_method" value="DELETE">
       <input type="hidden" name="id" value="<?= $note['id'] ?>">
       <button class="text-sm text-red-500 ml-6">Delete</button>
     </form>
+    <!-- <button class="text-sm text-red-500 ml-6">Edit</button> -->
+    
   </div>
 </main>
 <?php require base_path("views/partials/footer.php") ?>
