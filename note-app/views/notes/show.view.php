@@ -12,6 +12,10 @@
 
     <h1 class="text-2xl font-bold">Hello, This is my note #<?= $note['id'] ?></h1>
     <p class="text-lg mt-6 italic"><?= $note['body'] ?></p>
+    <form method="post" class="mt-6">
+      <input type="hidden" name="id" value="<?= $note['id'] ?>">
+      <button class="text-sm text-red-500 ml-6">Delete</button>
+    </form>
   </div>
 </main>
 <?php require base_path("views/partials/footer.php") ?>
