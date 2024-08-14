@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$_SESSION["name"] = "hariom";
+
 const BASE_PATH = __DIR__ . "/../";
 
 require BASE_PATH . "Core/functions.php";

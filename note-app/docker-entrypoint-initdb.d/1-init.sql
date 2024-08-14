@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(256) NOT NULL,
+    password VARCHAR(256) NOT NULL,
     email VARCHAR(256) NOT NULL UNIQUE
 );
 
@@ -18,10 +18,10 @@ CREATE UNIQUE INDEX unique_email_index ON users (email);
 
 BEGIN;
 
-INSERT INTO users (name, email) VALUES 
-('Alice Johnson', 'alice.johnson@example.com'),
-('Bob Smith', 'bob.smith@example.com'),
-('Charlie Brown', 'charlie.brown@example.com');
+INSERT INTO users (password, email) VALUES 
+('Alice-Johnson', 'alice.johnson@example.com'),
+('Bob-Smith', 'bob.smith@example.com'),
+('Charlie-Brown', 'charlie.brown@example.com');
 
 
 INSERT INTO notes (body, user_id) VALUES
