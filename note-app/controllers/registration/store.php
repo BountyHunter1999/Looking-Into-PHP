@@ -20,7 +20,7 @@ if (! empty($errors)) {
     return view("registration/create.view.php", ["errors"=> $errors]);
 }
 
-$db = App::resolve(Database::class);
+$db = App::resolve(\Core\Database::class);
 
 $user = $db->query("SELECT * FROM users WHERE email = :email", ["email"=> $email])->find();
 
