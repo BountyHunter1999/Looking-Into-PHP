@@ -2,9 +2,9 @@
 
 namespace Core\Middleware;
 
-class Auth {
+class Guest {
     public function handle(){
-        if (! ($_SESSION['user'] ?? false)) {
+        if ($_SESSION['user'] ?? false) {
             header('location: /');
             exit();
         }
