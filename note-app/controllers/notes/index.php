@@ -8,7 +8,8 @@ $db = App::resolve(\Core\Database::class);
 
 $notes = $db->query("SELECT * FROM notes WHERE user_id = :id;", ["id" => 1])->get();
 
-require view("notes/index.view.php", [
+view("notes/index.view.php", [
     "heading" => "My Notes",
     "notes" => $notes
 ]);
+

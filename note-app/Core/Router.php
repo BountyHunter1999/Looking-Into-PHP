@@ -46,8 +46,14 @@ class Router {
             if ($route["uri"] === $uri && $route['method'] === strtoupper($method)) {
                 // apply the middleware
                 if (key_exists("middleware", $route)) {
-                    if ($route["middleware"] ?? $route['middleware'] === 'guest') {
+                    if ($route['middleware'] === 'guest') {
                         if ($_SESSION['user'] ?? false) {
+                            header('location: /');
+                            exit();
+                        }
+                    }
+                    if ($route['middleware'] === 'auth') {
+                        if (! ($_SESSION['user'] ?? false)) {
                             header('location: /');
                             exit();
                         }
@@ -56,7 +62,7 @@ class Router {
                 return require base_path($route['controller']);
             }
         }
-
+        
         $this->abort(); 
     }
 
