@@ -91,8 +91,15 @@
                       <?php endif; ?>
                     </button>
                   </div>
-                  </div>
                 </div>
+                <?php if ($_SESSION['user'] ?? false) : ?>
+                  <div class="ml-3">
+                    <form method="post" action="/session">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="text-white">Log Out</button>
+                    </form>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
             <div class="-mr-2 flex md:hidden">
