@@ -1,7 +1,11 @@
 <?php
 
 // $_SESSION
-logout();
 
-header('location: /');
-exit();
+use Core\Authenticator;
+
+$auth = new Authenticator();
+
+$auth->logout();
+
+redirect("/");

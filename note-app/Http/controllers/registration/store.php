@@ -2,6 +2,7 @@
 
 use \Core\Validator;
 use \Core\App;
+use Core\Authenticator;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -30,11 +31,11 @@ if ($user) {
 } else {
     $db->query("INSERT INTO users (email, password) VALUES (:email, :password)", ["email"=> $email, "password"=> password_hash($password, PASSWORD_BCRYPT)]);
 
-    login([
+    $auth = new Authenticator();
+    $auth->login([
         'email' => $email
     ]);
-    header('location : /');
-    exit();
+    redirect('/');
 }
 // check if the account already exists
     // if yes, redirect to login page
