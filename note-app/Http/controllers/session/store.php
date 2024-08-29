@@ -21,9 +21,14 @@ if ($form->validate($email, $password)) {
 
 }
 
+// error should be flashed to the session and then immediately expire
+$_SESSION["_flash"]["errors"] = $form->getErrors();
 
-return view("session/create.view.php", [
-    "errors" => $form->getErrors(),
-]);
+
+redirect("/login");
+
+// return view("session/create.view.php", [
+//     "errors" => $form->getErrors(),
+// ]);
 
 
