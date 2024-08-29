@@ -3,6 +3,7 @@
 namespace Core;
 use Core\Database;
 use Core\App;
+use Core\Session;
 
 
 class Authenticator
@@ -35,12 +36,7 @@ class Authenticator
 
     public function logout() {
         // reset the super global so that it's not referenced anywhere else
-        $_SESSION = [];
-        // destroy the session file in system
-        session_destroy();
-
-        // delete the cookie
-        $params = session_get_cookie_params();
-        setcookie("PHPSESSID", "", time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+        // $_SESSION = [];
+        Session::destroy();
     }
     }

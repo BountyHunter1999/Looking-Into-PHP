@@ -1,5 +1,7 @@
 <?php
 
+use Core\Session;
+
 session_start();
 
 $_SESSION["name"] = "hariom";
@@ -29,4 +31,5 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 $router->route($uri, $method);
 
 
-unset($_SESSION["_flash"]);
+// unset($_SESSION["_flash"]);
+Session::unflash();

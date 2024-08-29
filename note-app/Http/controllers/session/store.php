@@ -1,6 +1,7 @@
 <?php
 
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST["email"];
@@ -22,7 +23,9 @@ if ($form->validate($email, $password)) {
 }
 
 // error should be flashed to the session and then immediately expire
-$_SESSION["_flash"]["errors"] = $form->getErrors();
+// $_SESSION["_flash"]["errors"] = $form->getErrors();
+
+Session::flash("errors", $form->getErrors());
 
 
 redirect("/login");
