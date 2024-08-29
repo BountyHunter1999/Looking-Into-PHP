@@ -11,6 +11,9 @@ $form = new LoginForm();
 if ($form->validate($email, $password)) {
     $auth = new Authenticator();
     
+    // if ((new Authenticator())->attempt($email, $password)) {
+    // if we are not passing the constructor args we can omit the closing and opening parenthesis
+    // if ((new Authenticator)->attempt($email, $password)) {
     if ($auth->attempt($email, $password)) {
         redirect("/");
     } 
