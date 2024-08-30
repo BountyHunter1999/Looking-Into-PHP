@@ -50,3 +50,8 @@ function redirect($path) {
     header("location: $path");
     exit();
 }
+
+function old($key, $default = "") {
+    // gives old form data
+    return Core\Session::get("old")[ $key ] ?? $default;
+}
